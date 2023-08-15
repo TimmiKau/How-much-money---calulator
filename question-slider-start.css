@@ -1,0 +1,72 @@
+html {
+  font-size: 62.5%; /* 1rem = 10px (10px * 62.5% = 6.25px) */
+}
+
+:root {
+  --main-color: rgb(174, 233, 225);
+  --second-color: rgb(69, 131, 212);
+  --font-color: black;
+}
+
+.questionContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+  width: 100vw;
+  height: 100vh;
+}
+
+.question {
+  position: absolute;
+  width: 70%;
+  height: 15rem;
+  opacity: 0%;
+  text-align: center;
+  margin: 0;
+  background-color: var(--second-color);
+  border-radius: 2rem;
+  padding: 6rem 1rem 9rem;
+  pointer-events: none;
+}
+
+.question.active {
+  opacity: 100%;
+  width: 60vw;
+  height: 20vh;
+  pointer-events: all;
+}
+
+.questionContainer.calculated {
+  transform: translateX(-50%);
+  width: 40vw;
+}
+
+h3 {
+  font-size: 4rem;
+}
+
+input {
+  position: relative;
+  border: 1px solid var(--font-color);
+  border-radius: 1rem;
+  background-color: var(--main-color);
+  width: 30%;
+  padding: 2rem;
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#calculateBtn, #nextBtn {
+  position: relative;
+  background-color: var(--main-color);
+  opacity: 1;
+  border: 1px solid var(--font-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  font-size: 2.5rem;
+  margin: 0;
+}

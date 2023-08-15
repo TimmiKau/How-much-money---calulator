@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%; /* 1rem = 10px (10px * 62.5% = 6.25px) */
+}
+
+:root {
+  --main-color: rgb(174, 233, 225);
+  --second-color: rgb(69, 131, 212);
+  --font-color: black;
+}
+
+body {
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

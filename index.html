@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="basic.css" />
+    <link
+      id="question-slider"
+      rel="stylesheet"
+      href="question-slider-start.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>How much money do you want?</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="questionContainer" id="questionContainer calculated">
+        <div id="q" class="question active">
+          <h3>How much money do you need?</h3>
+          <input
+            id="q1"
+            type="text"
+            autofocus
+            value=""
+            oninput="formatNumbers(this)"
+          />
+          <button id="nextBtn">Next</button>
+        </div>
+
+        <div id="q" class="question">
+          <h3>How much do you have now?</h3>
+          <input id="q2" type="text" value="" oninput="formatNumbers(this)" />
+          <button id="nextBtn">Next</button>
+        </div>
+
+        <div id="q" class="question">
+          <h3>How much can you save each month?</h3>
+          <input id="q3" type="text" value="" oninput="formatNumbers(this)" />
+          <button id="nextBtn">Next</button>
+        </div>
+
+        <div id="q" class="question">
+          <h3>How much interest? (%)</h3>
+          <input
+            id="q4"
+            type="text"
+            value=""
+            oninput="formatNumbers(this)"
+            placeholder="Avg is 7% Yearly"
+          />
+          <button
+            id="nextBtn"
+            onclick="calculate(),
+          moveInput(),
+          updateLineChart()"
+          >
+            Next
+          </button>
+        </div>
+
+        <div id="q" class="question">
+          <button id="calculateBtn">Calculate</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="answer">
+      <div id="chart">
+        <canvas id="myLineChart"></canvas>
+      </div>
+      <div id="yearsTaken"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

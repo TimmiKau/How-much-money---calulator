@@ -1,0 +1,82 @@
+html {
+  font-size: 62.5%; /* 1rem = 10px (10px * 62.5% = 6.25px) */
+}
+
+:root {
+  --main-color: rgb(174, 233, 225);
+  --second-color: rgb(69, 131, 212);
+  --font-color: black;
+}
+
+.questionContainer {
+  background-color: var(--second-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 30vw;
+  height: 70vh;
+  transition: 0.5s ease;
+}
+
+.question {
+  text-align: left;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+input {
+  position: relative;
+  border: 1px solid var(--font-color);
+  border-radius: 1rem;
+  background-color: var(--main-color);
+  padding: 2rem;
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#calculateBtn {
+  position: relative;
+  background-color: var(--main-color);
+  opacity: 1;
+  border: 1px solid var(--font-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  font-size: 2.5rem;
+  margin: 3rem;
+}
+
+#nextBtn {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#answer {
+  height: 70vh;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 2rem;
+  transition: 0.5s ease;
+}
+
+#myLineChart{
+ 
+  width: 60vw;
+  height: 70vh;
+}
+
+#yearsTaken {
+  font-size: 5rem;
+  padding: 4rem;
+  color: var(--second-color);
+}
