@@ -13,8 +13,8 @@
   padding: 2rem;
   border-radius: 2rem;
   width: 30vw;
-  height: 70vh;
   transition: 0.1s ease;
+  margin-left: 5rem;
 }
 
 .question {
@@ -32,6 +32,7 @@ input {
   background-color: var(--main-color);
   padding: 2rem;
   margin: 0;
+  width: 80%;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
@@ -54,8 +55,8 @@ input {
 }
 
 #answer {
-  height: 70vh;
-  width: 60vw;
+  width: 90%;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,14 +66,46 @@ input {
   transition: 0.1s ease;
 }
 
-#myLineChart{
- 
-  width: 60vw;
-  height: 70vh;
-}
-
 #yearsTaken {
   font-size: 5rem;
   padding: 4rem;
   color: var(--second-color);
+}
+
+#myLineChart{
+  width: 100%;
+}
+
+#chart{
+  width: 90%;
+}
+
+@media (max-width: 900px) {
+  h3 {
+    font-size: 2rem;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  .questionContainer {
+    width: 90%;
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  #yearsTaken{
+    font-size: 1.9rem;
+  }
 }
