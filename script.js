@@ -12,13 +12,22 @@ const nextBtns = document.querySelectorAll('#nextBtn');
 let yearsArray = [0,]  //Add start value to lineChart (Y-axel)
 let capArray = []   //(X-Axel)
 
+//Trigger for moveInput
+let moved = 0
+
+//Render the chart after moveInput() is done with transitions
+function moveInputAndThenUpdateChart(){
+moveInput()
+questionContainer.addEventListener('transitionend', () => {
+    updateLineChart()
+    moved = 1
+})
+
+}
 
 //Call all the functions when the calculate button is clicked. 
 calculateBtn.addEventListener('click', () => {
-    console.log('test of button calculate')
-    calculate()
-    moveInput()
-    updateLineChart()
+    endResult ()
 })
 
 //Calculate all the numbers from user. 
@@ -62,7 +71,15 @@ function moveInput(){
 
 //Add or Remove a class name to the nextBtn
 function showInputFocus(index){
+    
+    console.log(index)
+
     const inputElements = document.querySelectorAll('input[type="text"]')
+
+    if (index == 3){
+        endResult ()
+    }
+
     questions[index].classList.remove('active')
     questions[index + 1].classList.add('active')
     inputElements[index + 1].focus()
@@ -99,30 +116,29 @@ chartDiv.innerHTML = '<canvas id="myLineChart"></canvas>'
 //This will make the LineChart
 function makeLineChart (){
 
-const ctx = document.getElementById('myLineChart')
+ const ctx = document.getElementById('myLineChart')
 
-new Chart(ctx, {
-    type: 'line',
-
-    data: {
-      labels: yearsArray,
-      datasets: [{
-        label: 'Money growth',
-        backgroundColor: 'rgb(69, 131, 212)',
-        borderColor: 'rgb(69, 131, 212)',
-        data: capArray,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    new Chart(ctx, {
+        type: 'line',
+    
+        data: {
+          labels: yearsArray,
+          datasets: [{
+            label: 'Money growth',
+            backgroundColor: 'rgb(69, 131, 212)',
+            borderColor: 'rgb(69, 131, 212)',
+            data: capArray,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
         }
-      }
-    }
-  });
-
+      });
 }
 
 
@@ -130,4 +146,17 @@ function formatNumbers(input) {
     var value = input.value.replace(/ /g, ''); // Remove any existing spaces
     var formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') // Add thousand separators
     input.value = formattedValue
+}
+
+ function endResult (){
+        calculate()
+        
+        if (moved == 0){
+            moveInputAndThenUpdateChart()
+        }
+        
+        else {
+updateLineChart()
+        }
+        
 }

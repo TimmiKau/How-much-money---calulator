@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="questionContainer" id="questionContainer calculated">
+      <div class="questionContainer" id="questionContainer">
         <div id="q" class="question active">
           <h3>How much money do you need?</h3>
           <input
@@ -50,9 +50,7 @@
           />
           <button
             id="nextBtn"
-            onclick="calculate(),
-          moveInput(),
-          updateLineChart()"
+            onclick="endResult ()"
           >
             Next
           </button>
